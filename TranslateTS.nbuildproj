@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project>
+  <PropertyGroup>
+    <NBuildProjectBuild Condition="'$(NBuildProjectBuild)'==''">$(MSBuildExtensionsPath)\Jannesen.NBuildProject\</NBuildProjectBuild>
+    <ProjectGuid>952c1880-5ab5-468b-9fa5-d912ae9ac922</ProjectGuid>
+    <TypeScriptToolsVersion>2.9</TypeScriptToolsVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'" Label="Configuration">
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'" Label="Configuration">
+  </PropertyGroup>
+  <Import Project="$(NBuildProjectBuild)NBuildProject.props" />
+  <ItemGroup>
+    <None Include="LICENSE" />
+    <File Include="*" />
+    <File Include="src\**\*" />
+  </ItemGroup>
+  <ItemGroup>
+    <File Remove="TranslateTS.sln" />
+  </ItemGroup>
+  <Import Project="$(NBuildProjectBuild)NBuildProject.targets" />
+  <Target Name="Cleanup">
+    <CleanTargetTree ProjectDirectory="$(MSBuildProjectDirectory)" TargetDirectory=".\lib" />
+  </Target>
+  <Target Name="Build">
+    <ProcessBuild ProjectDirectory="$(MSBuildProjectDirectory)" ProcessBuildConfig="$(MSBuildProjectDirectory)\build.config" />
+  </Target>
+  <Target Name="Rebuild">
+    <CallTarget Targets="Cleanup" />
+    <CallTarget Targets="Build" />
+  </Target>
+</Project>

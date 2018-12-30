@@ -1,0 +1,13 @@
+﻿{
+    "compilerOptions": {
+        "target":           "es2017",
+        "module":           "none",
+        "noImplicitAny":    true,
+        "removeComments":   true,
+        "moduleResolution": "node",
+        "sourceMap":        true,
+        "inlineSources":    true,
+        "outDir":           "../lib",
+        "baseUrl":          ".",
+    }
+}

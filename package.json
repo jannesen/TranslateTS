@@ -1,0 +1,26 @@
+﻿{
+    "name": "TranslateTS",
+    "version": "1.0.0",
+    "private": true,
+    "description": "Automatic translator for TS",
+    "license": "Apache 2.0",
+    "author": {
+        "name": "Peter Jannesen",
+        "email": "peter@jannesen.com"
+    },
+    "homepage": "TODO",
+    "bugs": {
+        "url": "TODO"
+    },
+    "main": "./lib/main.js",
+    "typings": "./src/main.ts",
+    "scripts": {
+        "make": "node node_modules\\typescript\\lib\\tsc.js"
+    },
+    "engines": {
+        "node": ">=8.7.0"
+    },
+    "dependencies": {
+        "typescript":           "2.9.2"
+    }
+}

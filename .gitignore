@@ -1,0 +1,4 @@
+.vs/*
+lib/*
+*.csproj.user
+config.json
