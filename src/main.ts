@@ -1,4 +1,4 @@
-// C:\Local\TVCN\TAS\Src\TAS2.Internet>..\..\..\JLib\Tools\TranslateTS\node.exe ..\..\..\JLib\Tools\TranslateTS tasnet3\tasnet\resources\language.nl.ts tasnet3\tasnet\resources\language.de.ts
+﻿// C:\Local\TVCN\TAS\Src\TAS2.Internet>..\..\..\JLib\Tools\TranslateTS\node.exe ..\..\..\JLib\Tools\TranslateTS tasnet3\tasnet\resources\language.nl.ts tasnet3\tasnet\resources\language.de.ts
 import * as $fs from "fs";
 import * as $path from "path";
 import * as $https from "https";
