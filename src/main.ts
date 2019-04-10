@@ -4,7 +4,7 @@ import * as $path from "path";
 import * as $https from "https";
 import * as $ts from "typescript/lib/typescript";
 
-const config = JSON.parse($fs.readFileSync($path.dirname($path.dirname(module.filename)) + "/config.json", { encoding:"utf8" }));
+const config = JSON.parse($fs.readFileSync($path.dirname($path.dirname(module.filename)) + "\\config.json", { encoding:"utf8" }));
 const process_cwd = process.cwd();
 let   error_count = 0;
 
@@ -275,7 +275,7 @@ class TranslateTS
         return statements;
     }
 
-    private _addDiagnostics(diagnostics:$ts.Diagnostic[])
+    private _addDiagnostics(diagnostics:readonly $ts.Diagnostic[])
     {
         if (diagnostics && diagnostics.length > 0) {
             diagnostics.forEach((diagnostic) => {
