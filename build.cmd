@@ -11,6 +11,6 @@ echo tsc: TranslateTS
 if errorlevel 1 goto done
 
 echo tslint: TranslateTS
-"%NODEJS%node.exe" %NODE_PATH%\tslint\lib\tslint-cli --project src
+"%NODEJS%node.exe" %NODE_PATH%\tslint\lib\tslintCli --project src
 
 :done

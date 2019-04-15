@@ -154,13 +154,13 @@ class TranslateTS
             this.errors.push({ filename:this.target_filename, message:"Missing /// <export-interface path=\"...\"/>"});
         }
 
-        if (!(this.target_language = getLanguage(this.target_filename, target_text))) {
+        if (!(this.target_language = getLanguage(target_text))) {
             this.errors.push({ filename:this.target_filename, message:"Missing /// <language code=\"...\"/>"});
         }
 
         const template_text = $fs.readFileSync(this.template_filename, { encoding:"utf8" });
 
-        if (!(this.template_language = getLanguage(this.template_filename, template_text))) {
+        if (!(this.template_language = getLanguage(template_text))) {
             this.errors.push({ filename:this.template_filename, message:"Missing /// <language code=\"...\"/>"});
         }
 
@@ -368,7 +368,7 @@ function getExportInterface(filename:string, filetext:string)
 }
 
 const regex_language        = /\/\/\/\s*<language\s+code\s*=\s*('|")(.+?)('|")\s*\/>/im;
-function getLanguage(filename:string, filetext:string)
+function getLanguage(filetext:string)
 {
     const match = regex_language.exec(filetext);
     return match ? match[2] : undefined;
