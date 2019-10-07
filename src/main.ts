@@ -287,10 +287,16 @@ class TranslateTS
                 if (typeof diagnostic.messageText === "string") {
                     this.errors.push({ filename, lineno, column, message: diagnostic.messageText });
                 } else {
-                    for (let diagnosticChain = diagnostic.messageText as $ts.DiagnosticMessageChain, indent = 0 ;
-                            diagnosticChain ;
-                            diagnosticChain = diagnosticChain.next, ++indent) {
+                    logDiagnosticMessageChain(diagnostic.messageText, 0);
+
+                    function logDiagnosticMessageChain(diagnosticChain:$ts.DiagnosticMessageChain, indent:number) {
                         this.errors.push({ filename, lineno, column, message:"  ".repeat(indent) + diagnosticChain.messageText });
+
+                        if (diagnosticChain.next) {
+                            for (const n of diagnosticChain.next) {
+                                logDiagnosticMessageChain(n, indent + 1);
+                            }
+                        }
                     }
                 }
             });
