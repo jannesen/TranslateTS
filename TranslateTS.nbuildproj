@@ -18,14 +18,14 @@
     <File Remove="TranslateTS.sln" />
   </ItemGroup>
   <Import Project="$(NBuildProjectBuild)NBuildProject.targets" />
-  <Target Name="Cleanup">
+  <Target Name="Clean">
     <CleanTargetTree ProjectDirectory="$(MSBuildProjectDirectory)" TargetDirectory=".\lib" />
   </Target>
   <Target Name="Build">
     <ProcessBuild ProjectDirectory="$(MSBuildProjectDirectory)" ProcessBuildConfig="$(MSBuildProjectDirectory)\build.config" />
   </Target>
   <Target Name="Rebuild">
-    <CallTarget Targets="Cleanup" />
+    <CallTarget Targets="Clean" />
     <CallTarget Targets="Build" />
   </Target>
 </Project>
