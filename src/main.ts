@@ -1,4 +1,4 @@
-﻿// C:\Local\TVCN\TAS\Src\TAS2.Internet>..\..\..\JLib\Tools\TranslateTS\node.exe ..\..\..\JLib\Tools\TranslateTS tasnet3\tasnet\resources\language.nl.ts tasnet3\tasnet\resources\language.de.ts
+// C:\Local\TVCN\TAS\Src\TAS2.Internet>..\..\..\JLib\Tools\TranslateTS\node.exe ..\..\..\JLib\Tools\TranslateTS tasnet3\tasnet\resources\language.nl.ts tasnet3\tasnet\resources\language.de.ts
 import * as $fs from "fs";
 import * as $path from "path";
 import * as $https from "https";
@@ -130,8 +130,9 @@ class TranslateTS
             let s = 0;
 
             while (n < 32 && n < totranslate.length) {
-                if ((s += totranslate[n].txt.length) > 5000)
+                if ((s += totranslate[n].txt.length) > 5000) {
                     break;
+                }
 
                 ++n;
             }
@@ -183,7 +184,7 @@ class TranslateTS
                     return undefined;
                 }
 
-                return Object.assign<$ts.CompilerOptions, $ts.CompilerOptions>({}, parse_result.options);
+                return { ...parse_result.options };
             }
 
             const d = $path.dirname(dirname);
@@ -464,14 +465,14 @@ async function translate(txt:string[], source:string, target:string) {
     return new Promise<string[]>((resolve, reject) => {
         if (config.apikey) {
             const request = $https.request({
-                hostname:   "translation.googleapis.com",
-                method:     "POST",
-                path:       "/language/translate/v2?key=" + encodeURI(config.apikey) + "&alt=json",
-                timeout:    30000,
-                headers:    {
-                    "Content-Type": "application/json",
-                }
-            },
+                    hostname:   "translation.googleapis.com",
+                    method:     "POST",
+                    path:       "/language/translate/v2?key=" + encodeURI(config.apikey) + "&alt=json",
+                    timeout:    30000,
+                    headers:    {
+                        "Content-Type": "application/json",
+                    }
+                },
                 (response) => {
                     if (response.statusCode !== 200) {
                         reject(new Error("translation.googleapis.com returns status code: " + response.statusCode));

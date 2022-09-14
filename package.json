@@ -8,9 +8,9 @@
         "name": "Peter Jannesen",
         "email": "peter@jannesen.com"
     },
-    "homepage": "TODO",
+    "homepage": "https://github.com/jannesen/TranslateTS",
     "bugs": {
-        "url": "TODO"
+        "url": "https://github.com/jannesen/TranslateTS/issue"
     },
     "main": "./lib/main.js",
     "typings": "./src/main.ts",
@@ -18,9 +18,9 @@
         "make": "node node_modules\\typescript\\lib\\tsc.js"
     },
     "engines": {
-        "node": ">=8.7.0"
+        "node": ">=16.0.0"
     },
     "dependencies": {
-        "typescript":           "2.9.2"
+        "typescript": "file:../TypeScript"
     }
 }
